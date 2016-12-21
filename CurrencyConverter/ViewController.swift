@@ -10,9 +10,42 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    override func viewDidLoad() {
+
+    
+    
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        let url = URL(string:"http://api.fixer.io/latest")
+        
+        let task = URLSession.shared.dataTask(with: url!) { (data, response, error) in
+            
+            if error != nil
+            {
+                print("ERROR")
+            }
+            else
+            {
+                if let content = data
+                {
+                    do
+                    {
+                        let myJson = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as Any
+                        
+                        print(myJson)
+                    }
+                    catch
+                    {
+                        
+                    }
+                }
+            }
+        }
+        task.resume()
+        
+        
+        
     }
 
     override func didReceiveMemoryWarning() {

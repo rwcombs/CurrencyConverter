@@ -33,7 +33,13 @@ class ViewController: UIViewController {
                     {
                         let myJson = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
                         
-                        print(myJson)
+                        //print(myJson)
+                        
+                        if let rates = myJson["rates"] as? NSDictionary
+                        {
+                            print (rates)
+                        }
+                        
                     }
                     catch
                     {

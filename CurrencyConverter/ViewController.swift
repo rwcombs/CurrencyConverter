@@ -13,6 +13,11 @@ class ViewController: UIViewController {
     var myCurrency:[String] = []
     var myValues:[Double] = []
     
+    // Objects
+    @IBOutlet weak var input: UITextField!
+    @IBOutlet weak var pickerView: UIPickerView!
+    @IBOutlet weak var output: UILabel!
+    
     
     override func viewDidLoad()
     {

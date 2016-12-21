@@ -10,7 +10,8 @@ import UIKit
 
 class ViewController: UIViewController {
 
-
+    var myCurrency:[String] = []
+    var myValues:[Double] = []
     
     
     override func viewDidLoad()
@@ -37,7 +38,15 @@ class ViewController: UIViewController {
                         
                         if let rates = myJson["rates"] as? NSDictionary
                         {
-                            print (rates)
+                            //print (rates)
+                            
+                            for (key, value) in rates
+                            {
+                                self.myCurrency.append((key as? String)!)
+                                self.myValues.append((value as? Double)!)
+                            }
+                            print (self.myCurrency)
+                            print (self.myValues)
                         }
                         
                     }
